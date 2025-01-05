@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dekore Për Syneti</title>
+	<style>
+body {
+	font-family: Verdana, sans-serif;
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+	background-color: #E7D4B5;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100px;
+	background-color: #E7D4B5;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	z-index: 10;
+	font-size: 24px;
+	color: #4A3C31;
+	font-weight: bold;
+}
+
+nav {
+	position: fixed;
+	top: 100px;
+	width: 230px;
+	background-color: #F2DAC3;
+	height: calc(100% - 100px);
+	left: 0;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+	padding-top: 20px;
+	overflow-y: auto;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+nav ul li {
+	margin: 15px 20px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	font-size: 16px;
+	color: #4A3C31;
+	transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+	color: #8B5A2B;
+}
+	
+main {
+            margin-left: 250px;
+            padding: 20px;
+            margin-top: 120px;
+        }
+
+
+	.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 25px;
+}
+
+.gallery img {
+	width: 300px;
+	height: 300px;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.gallery img.zoomed {
+	transform: scale(1.5);
+	z-index: 10;
+	position: relative;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.modal img {
+	width: auto;
+	height: auto;
+	max-width: 90%;
+	max-height: 100%;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	border: none;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1001;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	width: 100%;
+	background-color: #E7D4B5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	color: #4A3C31;
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+	</style>
+</head>
+<body>
+	<header>
+        Dekore Enisi-Kapre
+    </header>
+
+   <nav>
+		<div id="bar">
+		<ul>
+
+		<li><a href="index.html">🏠 Faqja Kryesore</a></li>
+
+		<h1>Produktet</h1>
+
+		<li><a href="DekoreDasmash.html">Dekore Për Darsma Dhe Fejesa</a></li>
+		<li><a href="DekoreKanagjegj.html">Dekore Për Kanagjegje</a></li>
+		<li><a href="DekoreSynetish.html">Dekore Për Syneti</a></li>
+		<li><a href="DekoreMakinash.html">Dekore Për Makina</a></li>
+		<svg width="150" height="20">
+		</svg>
+			
+
+
+
+					
+		</ul>
+	</div>
+
+	</nav>
+	<main>
+	<h2>Dekore Për Syneti </h2>
+    <div class="gallery">
+    
+        <img src="foto.27.jpg" alt="Foto 27">
+        <img src="foto.28.jpg" alt="Foto 28">
+        <img src="foto.29.jpg" alt="Foto 29">
+        <img src="foto.30.jpg" alt="Foto 30">
+        <img src="foto.31.jpg" alt="Foto 31">
+        <img src="foto.32.jpg" alt="Foto 32">
+
+         <video width="540" height="400" controls>
+        <source src="video2.mp4" type="video/mp4"></video>
+
+    </div>
+    <div class="modal" id="modal">
+        <img id="modal-img" src="" alt="Zoom">
+        <button class="close-btn" id="close-btn">X</button>
+    </div>
+</main>
+
+<script>
+    const images = document.querySelectorAll('.gallery img');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.getElementById('close-btn');
+
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImg.src = image.src;
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
+
+<footer>
+		© 2025 Dekore Enisi-Kapre. Të gjitha të drejtat e rezervuara.
+	</footer>
+</body>
+</html>
